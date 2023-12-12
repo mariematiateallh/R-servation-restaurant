@@ -1,0 +1,24 @@
+{
+  "reservations": [
+    {
+      "id": 1702144691907,
+      "reservationDate": "2023-12-30",
+      "customerName": "asma",
+      "timetables": "20:57",
+      "customerEmail": "asma@gmail.com",
+      "numberOfGuests": 8,
+      "customerPhone": "2365892",
+      "furtherRequests": "gfggg"
+    },
+    {
+      "id": 1702372853596,
+      "reservationDate": "2023-12-15",
+      "customerName": "sahar",
+      "timetables": "10:24",
+      "customerEmail": "fhg@hgvbj.com",
+      "numberOfGuests": 2,
+      "customerPhone": "1534545451",
+      "furtherRequests": "fhj"
+    }
+  ]
+}

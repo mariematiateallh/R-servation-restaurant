@@ -1,0 +1,10 @@
+    <div class="col navMenu" id="Menu">
+        <h2 class="text-center" >~ Menu ~</h2>
+  </div>
+<section class="row bg-light">
+    <div class="col-md-4" *ngFor="let menu of menus" data-aos="slide-up">
+      <app-menu [menu]="menu"></app-menu>
+    </div>
+    <a href="/detailsMenu"> Plus</a>
+  </section>
+  

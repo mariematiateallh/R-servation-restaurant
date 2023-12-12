@@ -1,0 +1,78 @@
+
+
+
+  <nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+    <a class="navbar-brand" href="#Welcome">
+       <img src="assets/images/logo.png" width="50" height="50" class="d-inline-block" alt=""> Italian Restaurant
+    </a>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/" >Dashboard</a>
+              </li>
+        </ul>
+    </div>
+</nav>
+<div class="row" id="list">
+  <div class="col navMenu">
+        <h2 class="text-center" >~ Liste Reservation ~</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="row bg-light">
+    <div class="col-md-4" *ngFor="let reservation of reservations" data-aos="slide-up">
+      <div class="card view zoom" style="margin-bottom: 20px;">
+        <ul class="reservation-list">
+          <li class="reservation-item">
+            <div class="customer-info">
+              <h3>{{ reservation.customerName }}</h3>
+              <p>Email: {{ reservation.customerEmail }}</p>
+              <p>Téléphone: {{ reservation.customerPhone }}</p>
+            </div>
+            <div class="reservation-info">
+              <p>Date de réservation: {{ reservation.reservationDate }}</p>
+              <p>Nombre d'invités: {{ reservation.numberOfGuests }}</p>
+              <p>Horaire: {{ reservation.timetables }}</p>
+              <p> Autres demandes: {{ reservation.furtherRequests }}</p>
+            </div>
+            <button class="btn btn-danger" (click)="deleteReservation(reservation.id)" style="margin-right: 10px;">Annuler</button>
+            <button class="btn btn-success" (click)="editReservation(reservation)">Modifier</button>
+          </li>
+        </ul>
+      </div>
+
+        <app-edit-res-form
+        *ngIf="selectedReservation && selectedReservation.id === reservation.id"
+        [reservation]="reservation"
+        (updateReservation)="updateReservation($event)"
+      ></app-edit-res-form>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<div class="row footer bg-light">
+  <div class="col">
+    <p class="text-center">Follow us: <a class="social-icon" href="https://www.facebook.com/rubiktechnologiesShpk/"><i class="fab fa-facebook"></i></a> <a class="social-icon" href="https://www.instagram.com/rubiktechnologies/"><i class="fab fa-instagram"></i></a></p>
+  </div>
+  <div class="col">
+    <p class="text-center">Copyright &copy; 2023</p>
+  </div>
+  <div class="col">
+    <p class="text-center">Powered by: Mariem_Asma</p>
+  </div>
+</div>
+
+<footer class="container">
+<div class= "row only-mobile">
+  <div class="col-6">
+    <a class="btn btn-primary btn-block text-center" href="tel:++390000000"><i class="fa fa-phone" aria-hidden="true"></i> Call</a>
+  </div>
+  <div class="col-6">
+    <a class="btn btn-success btn-block text-center" href="https://api.whatsapp.com/send?phone=+390000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> Whatsapp</a>
+  </div>
+</div>
+</footer>

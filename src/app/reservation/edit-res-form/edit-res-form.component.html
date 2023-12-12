@@ -1,0 +1,61 @@
+<div class="dialog-overlay" >
+    <div class="dialog-content" >
+        <form #updateForm="ngForm" (ngSubmit)="submitUpdateForm()">
+            <h3>Reserve</h3>
+            <label for="inputName"> Date</label>
+    <!-- Utilisez [(ngModel)] pour lier les champs du formulaire aux propriétés de la réservation -->
+    <input type="date" class="form-control" id="inputDate" placeholder="Data gg/mm/aaaa" name="reservationDate" [(ngModel)]="reservation.reservationDate" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['reservationDate'].invalid && updateForm.controls['reservationDate'].touched">
+      La date est obligatoire.
+    </div>
+
+  <div class="form-group col-6">
+    <h3>Details</h3>
+    <label for="inputName"> Nom</label>
+    <input type="text" class="form-control" id="inputName" placeholder="Nom" name="customerName" [(ngModel)]="reservation.customerName" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['customerName'].invalid && updateForm.controls['customerName'].touched">
+      Le nom est obligatoire.
+    </div>
+  </div>
+  <div class="form-group col-6">
+    <h3>Horaire</h3>
+    <label for="inputTime"> Horaire</label>
+    <input type="time" class="form-control" id="inputTime" placeholder="Horaire" name="timetables" [(ngModel)]="reservation.timetables" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['timetables'].invalid && updateForm.controls['timetables'].touched">
+      Les horaires sont obligatoires.
+    </div>
+  </div>
+  <div class="form-group col-6">
+    <h3>Email</h3>
+    <label for="inputEmail"> Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="customerEmail" [(ngModel)]="reservation.customerEmail" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['customerEmail'].invalid && updateForm.controls['customerEmail'].touched">
+      L'email est obligatoire.
+    </div>
+  </div>
+  <div class="form-group col-6">
+    <h3>Nombre d'invités</h3>
+    <label for="inputNumber"> Nombre d'invités</label>
+    <input type="number" class="form-control" id="inputNumber" placeholder="Nombre d'invités" name="numberOfGuests" [(ngModel)]="reservation.numberOfGuests" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['numberOfGuests'].invalid && updateForm.controls['numberOfGuests'].touched">
+      Le nombre d'invités est obligatoire.
+    </div>
+  </div>
+  <div class="form-group col-6">
+    <h3>Téléphone</h3>
+    <label for="inputCel"> Téléphone</label>
+    <input type="tel" class="form-control" id="inputCel" placeholder="Téléphone" name="customerPhone" [(ngModel)]="reservation.customerPhone" required>
+    <div class="alert alert-danger" *ngIf="updateForm.controls['customerPhone'].invalid && updateForm.controls['customerPhone'].touched">
+      Le numéro de téléphone est obligatoire.
+    </div>
+  </div>
+  <div class="form-group col-12">
+    <h3>Autres demandes</h3>
+    <label for="inputComment">Autres demandes</label>
+    <textarea class="form-control" rows="4" id="inputComment" placeholder="Autres demandes" name="furtherRequests" [(ngModel)]="reservation.furtherRequests"></textarea>
+  </div>
+
+    <button type="submit">Valider la modification</button>
+  </form>
+  </div>
+  </div>

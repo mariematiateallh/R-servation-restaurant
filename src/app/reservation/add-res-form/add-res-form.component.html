@@ -1,0 +1,85 @@
+<div class="row bg-light">
+    <div class="col">
+      <form #reservationForm="ngForm" (ngSubmit)="addres(reservationForm)">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <h3>Réserve</h3>
+          <label for="inputDate"> Date</label>
+          <input type="date" class="form-control" id="inputDate" placeholder="Data gg/mm/aaaa"
+                 [(ngModel)]="reservation.reservationDate" name="reservationDate" required>
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['reservationDate'].invalid && reservationForm.form.controls['reservationDate'].touched">
+            <div *ngIf="reservationForm.form.controls['reservationDate'].errors?.['required']">La date est obligatoire.</div>
+          </div>
+          </div>
+          <div class="form-group col-6">
+            <h3>Details</h3>
+          <label for="inputName"> Nom</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Nom"
+                 [(ngModel)]="reservation.customerName" name="customerName" required>
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['customerName'].invalid && reservationForm.form.controls['customerName'].touched">
+            <div *ngIf="reservationForm.form.controls['customerName'].errors?.['required']">Le nom est obligatoire.</div>
+          </div>
+          </div>
+          <div class="form-group col-6">
+            <h3>Horaire</h3>
+            <label for="inputTime"> Horaire</label>
+          <input type="time" class="form-control" id="inputTime" placeholder="Horaire"
+                 [(ngModel)]="reservation.timetables" name="timetables" required>
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['timetables'].invalid && reservationForm.form.controls['timetables'].touched">
+            <div *ngIf="reservationForm.form.controls['timetables'].errors?.['required']">Les horaires sont obligatoires.</div>
+          </div>
+          </div>
+          <div class="form-group col-6">
+            <h3>Email</h3>
+            <label for="inputEmail"> Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email"
+                 [(ngModel)]="reservation.customerEmail" name="customerEmail" required email>
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['customerEmail'].invalid && reservationForm.form.controls['customerEmail'].touched">
+            <div *ngIf="reservationForm.form.controls['customerEmail'].errors?.['required']">L'email est obligatoire.</div>
+            <div *ngIf="reservationForm.form.controls['customerEmail'].errors?.['customerEmail']">Veuillez entrer une adresse email valide.</div>
+          </div>
+          </div>
+          <div class="form-group col-6">
+            <h3>Nombre d'invités</h3>
+            <label for="inputNumber">Nombre d'invités</label>
+            <input type="number" class="form-control" id="inputNumber" placeholder="Nombre d'invités"
+                 [(ngModel)]="reservation.numberOfGuests" name="numberOfGuests" required min="1">
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['numberOfGuests'].invalid && reservationForm.form.controls['numberOfGuests'].touched">
+            <div *ngIf="reservationForm.form.controls['numberOfGuests'].errors?.['required']">Le nombre d'invités est obligatoire.</div>
+            <div *ngIf="reservationForm.form.controls['numberOfGuests'].errors?.['min']">Le nombre d'invités doit être supérieur à 0.</div>
+          </div>
+          </div>
+          <div class="form-group col-6">
+            <h3>Téléphone</h3>
+            <label for="inputCel">Téléphone </label>
+            <input type="tel" class="form-control" id="inputCel" placeholder="Téléphone"
+                 [(ngModel)]="reservation.customerPhone" name="customerPhone" required pattern="[0-9]{10}">
+          <div class="alert alert-danger" *ngIf="reservationForm.form.controls['customerPhone'].invalid && reservationForm.form.controls['customerPhone'].touched">
+            <div *ngIf="reservationForm.form.controls['customerPhone'].errors?.['required']">Le numéro de téléphone est obligatoire.</div>
+            <div *ngIf="reservationForm.form.controls['customerPhone'].errors?.['pattern']">Le numéro de téléphone doit contenir 8 chiffres.</div>
+          </div>
+          </div>
+          <div class="form-group col-12">
+            <h3>Autres demandes</h3>
+            <label for="inputComment"> Autres demandes</label>
+            <textarea class="form-control" rows="4" id="inputComment" placeholder="Autres demandes" name="furtherRequests" [(ngModel)]="reservation.furtherRequests"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+
+            <button type="submit" class="btn btn-secondary btn-block" [disabled]="reservationForm.invalid">Reserve</button>
+          </div>
+          <div class="col-md-4 col-md-offset-4">
+
+            <div><button onclick="window.location.href='/afficheliste'" class="btn btn-secondary btn-block">Liste Reservation </button></div>
+          </div>
+
+
+          <div>
+         </div>
+        </div>
+      </form>
+    </div>
+  </div>
